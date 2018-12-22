@@ -12,9 +12,9 @@ const {
 
 // DUMMY DATA
 const books = [
-  { id: "1", name: "The Wind Of Fire", genre: "Fantasy" },
-  { id: "2", name: "Final Empire", genre: "Fantasy" },
-  { id: "3", name: "The Long Drill", genre: "Sci-fi" }
+  { id: "1", name: "The Wind Of Fire", genre: "Fantasy", authorId: "1" },
+  { id: "2", name: "Final Empire", genre: "Fantasy", authorId: "2" },
+  { id: "3", name: "The Long Drill", genre: "Sci-fi", authorId: "3" }
 ];
 const authors = [
   { id: "1", name: "Patrick Adams", age: 54 },
@@ -28,7 +28,14 @@ const BookType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    genre: { type: GraphQLString }
+    genre: { type: GraphQLString },
+    author: {
+      type: AuthorType,
+      resolve(parent, args) {
+        console.log(parent);
+        return _.find(authors, { id: parent.authorId });
+      }
+    }
   })
 });
 // SCHEMA - AUTHOR TYPE
