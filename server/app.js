@@ -1,11 +1,17 @@
-const express = require('express');
+const express = require("express");
+const graphqlHTTP = require("express-graphql");
+const schema = require("./schema/schema");
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('GraphQL work in progress...')
-})
+// MIDDLEWARE
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema
+  })
+);
 
 app.listen(4000, () => {
-    console.log('Server running on port 4000...')
-})
+  console.log("Server running on port 4000...");
+});

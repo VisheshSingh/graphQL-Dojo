@@ -1,0 +1,19 @@
+const graphql = require("graphql");
+
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLList,
+  GraphQLSchema
+} = graphql;
+
+// SCHEMA - BOOK TYPE
+const BookType = new GraphQLObjectType({
+  name: "Book",
+  fields: () => ({
+    id: { type: { GraphQLString } },
+    name: { type: { GraphQLString } },
+    genre: { type: { GraphQLString } }
+  })
+});
