@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-import { gql } from "apollo-boost";
 import { graphql } from "react-apollo";
+import { getAuthorsQuery } from "../queries/queries";
 
-// GET BOOK QUERY
-const getAuthorsQuery = gql`
-  {
-    authors {
-      name
-      id
-    }
-  }
-`;
 class AddForm extends Component {
   displayAuthors = () => {
     var data = this.props.data;
