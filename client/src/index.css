@@ -8,3 +8,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #eee;
 }
+
+.App h1 {
+  padding: 0.75rem;
+  font-size: 3rem;
+}
+
+#book-list {
+  margin: 0.5rem;
+}
+
+#book-list li {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
